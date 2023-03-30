@@ -40,6 +40,15 @@ jobs:
     #- name: Login to Amazon ECR
       #id: login-ecr
       #uses: aws-actions/amazon-ecr-login@v1
+      
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with: 
+        python-version: '3.8'
+
+    - name: Install Dependencies
+      run: |
+          pip install dbt-core 
 
     - name: Build DBT Docker Image
       run: |
@@ -49,6 +58,10 @@ jobs:
          docker --version
          cd dbt-project
          docker build -t my-dbt-image .
+    
+    - name: DBT Version Check
+      run: |
+       dbt --version     
   
   Deploy:
    name: Deploy_dbt
