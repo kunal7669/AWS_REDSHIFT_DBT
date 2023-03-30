@@ -47,3 +47,5 @@ jobs:
          ls -lrt
          aws --version
          docker --verison
+         cd dbt-project
+         docker build -t my-dbt-image .
