@@ -1,6 +1,6 @@
 FROM python:3
-WORKDIR /src
-COPY ./dbt-project /src
+WORKDIR /dbt-project
+COPY ./dbt-project /dbt-project
 
 RUN pip install -r requirements.txt
 CMD ["dbt","--version"]
