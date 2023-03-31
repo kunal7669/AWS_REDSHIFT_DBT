@@ -56,7 +56,6 @@ jobs:
          ls -lrt
          aws --version
          docker --version
-         cd dbt-project
          docker build -t my-dbt-image .
     
     - name: DBT Version Check
